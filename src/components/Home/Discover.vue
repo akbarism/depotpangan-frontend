@@ -1,6 +1,6 @@
 <template>
   <div class="grid">
-    <div class="col-3">
+    <div class="col-12 md:col-3">
       <div class="px-3">
         <div class="line_red bg-red-600 mb-2"></div>
         <h3>PRODUK</h3>
@@ -15,7 +15,7 @@
         </p>
       </div>
     </div>
-    <div class="col-3">
+    <div class="col-12 md:col-3">
       <div class="px-3">
         <div class="line_red bg-red-600 mb-2"></div>
         <h3>PUBLIKASI</h3>
@@ -30,7 +30,7 @@
         </p>
       </div>
     </div>
-    <div class="col-3">
+    <div class="col-12 md:col-3">
       <div class="px-3">
         <div class="line_red bg-red-600 mb-2"></div>
         <h3>EVENT</h3>
@@ -45,7 +45,7 @@
         </p>
       </div>
     </div>
-    <div class="col-3">
+    <div class="col-12 md:col-3">
       <div class="px-3">
         <div class="line_red bg-red-600 mb-2"></div>
         <h3>CUST</h3>

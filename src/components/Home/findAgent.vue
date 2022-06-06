@@ -1,6 +1,6 @@
 <template>
   <div class="grid">
-    <div class="col-5">
+    <div class="col-12 md:col-5">
       <div class="flex align-items-center">
         <img
           src="https://www.wahana.com/assets/img/icons/icon/Location@2x.png"
@@ -43,8 +43,11 @@
         />
       </div>
     </div>
-    <div class="col-7">
+    <div class="col-12 md:col-7">
       <div id="mapContainer" class="maps shadow-2"></div>
+      <div class="flex justify-content-end">
+        <Button class="mt-3 p-button-text" iconPos="right" icon="pi pi-chevron-right" label="Cari Agen Lainya" />
+      </div>
     </div>
   </div>
 </template>
@@ -110,6 +113,6 @@ if (navigator.geolocation) {
 }
 .maps {
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 </style>

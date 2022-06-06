@@ -1,8 +1,7 @@
 <template>
   <div>
     <Toolbar>
-      <template #start>
-      </template>
+      <template #start> </template>
     </Toolbar>
     <div class="banner">
       <Banner />
@@ -41,11 +40,25 @@ import AllBrand from "../components/Home/allBrand.vue";
   height: 65vh;
 }
 .service {
-  height: 25vh;
+  min-height: 25vh;
   box-sizing: border-box;
   box-shadow: 0px 5px 15px 0px rgb(153 153 153 / 58%);
 }
 .discover {
   padding: 0 100px;
+}
+.allbrand {
+  padding: 0 100px;
+}
+
+@media (max-width: 600px) {
+  .discover {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 480px) {
+  .discover {
+    padding: 0 10px;
+  }
 }
 </style>

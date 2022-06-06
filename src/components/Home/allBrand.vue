@@ -1,6 +1,6 @@
 <template>
   <div class="grid">
-    <div class="col-3">
+    <div class="col-12 md:col-3">
       <div class="flex align-items-center" style="height: 100%">
         <p class="text-justify">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -8,13 +8,14 @@
         </p>
       </div>
     </div>
-    <div class="col-9">
+    <div class="col-12 md:col-9">
       <Carousel
         :value="brands"
         :numVisible="3"
         :numScroll="1"
         :circular="true"
         :autoplayInterval="3000"
+        :responsiveOptions="responsiveOptions"
       >
         <template #item="item">
           <div class="p-3">
@@ -57,6 +58,24 @@ const brands = ref([
     img: "https://www.sicepat.com/static/img/fitur-4@2x.png",
     title: "Syariah",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do  eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+]);
+
+const responsiveOptions = ref([
+  {
+    breakpoint: "1024px",
+    numVisible: 3,
+    numScroll: 3,
+  },
+  {
+    breakpoint: "600px",
+    numVisible: 2,
+    numScroll: 2,
+  },
+  {
+    breakpoint: "480px",
+    numVisible: 1,
+    numScroll: 1,
   },
 ]);
 </script>
