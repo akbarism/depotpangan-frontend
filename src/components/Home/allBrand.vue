@@ -1,14 +1,14 @@
 <template>
   <div class="grid">
-    <div class="col-4">
-      <div class="flex align-items-center">
-        <p>
+    <div class="col-3">
+      <div class="flex align-items-center" style="height: 100%">
+        <p class="text-justify">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </div>
     </div>
-    <div class="col-8">
+    <div class="col-9">
       <Carousel
         :value="brands"
         :numVisible="3"

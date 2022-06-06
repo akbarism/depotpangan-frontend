@@ -2,7 +2,6 @@
   <div>
     <Toolbar>
       <template #start>
-        <i class="pi pi-bars p-toolbar-separator mr-2" />
       </template>
     </Toolbar>
     <div class="banner">
@@ -14,14 +13,13 @@
     <div class="discover py-5">
       <Discover />
     </div>
-    <div class="discover">
-      <div class="p-2">
-        <FindAgent />
-      </div>
+    <div class="discover py-5">
+      <FindAgent />
     </div>
-    <div class="p-2">
-     <AllBrand/>
+    <div class="discover py-5 surface-400">
+      <AllBrand />
     </div>
+    <div class="discover py-5 bg-red-600" style="height: 100vh"></div>
   </div>
 </template>
 

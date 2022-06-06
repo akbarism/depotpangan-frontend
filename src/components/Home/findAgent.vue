@@ -43,18 +43,23 @@
         />
       </div>
     </div>
-    <div class="col-7 bg-blue-800">leaflet</div>
+    <div class="col-7">
+      <div id="mapContainer" class="maps shadow-2"></div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, reactive } from "@vue/reactivity";
 import { mainStore } from "../../store/store";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 
 const store = mainStore();
 
 const vm = reactive({
   loading: false,
+  map: null,
 });
 const loading = ref(false);
 const agents = ref([]);
@@ -65,18 +70,33 @@ const getPosition = async (position) => {
     lat: position.coords.latitude,
     long: position.coords.longitude,
   };
+  renderMap(coor);
   const data = {
     path: `getMap/${coor.lat}/${coor.long}`,
   };
   try {
     let res = await store.getData(data);
-    console.log(res.data.locationDetail);
     agents.value = res.data.locationDetail;
     vm.loading = false;
   } catch (err) {
     console.log(err);
     vm.loading = false;
   }
+};
+
+const renderMap = (coor) => {
+  // const pin = "https://weblib.wahana.com/assets/images/wahana/marker.png";
+  let pin = L.icon({
+    iconUrl: "https://weblib.wahana.com/assets/images/wahana/marker.png",
+    iconSize: [35, 35],
+  });
+  vm.map = L.map("mapContainer").setView([coor.lat, coor.long], 15);
+  L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(vm.map);
+
+  L.marker([coor.lat, coor.long], { icon: pin }).addTo(vm.map);
 };
 
 if (navigator.geolocation) {
@@ -87,5 +107,9 @@ if (navigator.geolocation) {
 <style>
 .marker_ico {
   height: 35px;
+}
+.maps {
+  width: 100%;
+  height: 500px;
 }
 </style>
